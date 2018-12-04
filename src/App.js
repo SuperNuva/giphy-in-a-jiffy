@@ -36,7 +36,6 @@ class App extends Component {
 
   render() {
     const results = this.state.results
-    console.log(this.state.message)
     return (
       <div className="App">
         <h1>Giphy in a Jiffy!</h1>
@@ -54,9 +53,5 @@ class App extends Component {
     );
   }
 }
-
-// http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=BQStT8BRsgsqlIugTI8fRI5k6wZzgp3H&limit=5
-
-// key = BQStT8BRsgsqlIugTI8fRI5k6wZzgp3H
 
 export default App;
