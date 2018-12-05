@@ -5,8 +5,7 @@ const Gif = (props) => {
   const imgSrc = result.images.fixed_width.url;
   return (
     <li className='gif'>
-        <img src={imgSrc} alt={result.title}/>
-        <p>{result.title}</p>
+      <img src={imgSrc} alt={result.title}/>
     </li>
   )
 }

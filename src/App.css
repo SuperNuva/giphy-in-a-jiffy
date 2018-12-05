@@ -4,19 +4,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -24,6 +13,50 @@
 .App-link {
   color: #61dafb;
 }
+
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#searchInput {
+  width: 70vw;
+  height: 4.5vh;
+  padding: 0;
+  margin: 0;
+}
+
+#searchBtn {
+  width: 10vw;
+  height: 5vh;
+  background: lightblue;
+  text-align: center;
+  text-transform: uppercase;
+  font: ubuntu;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  /* padding: 20px; */
+}
+
+.select {
+  display: none;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  list-style: none;
+  margin: 20px;
+}
+
+.gif {
+  padding: 5px;
+}
+
 
 @keyframes App-logo-spin {
   from {
