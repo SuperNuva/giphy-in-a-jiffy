@@ -26,7 +26,8 @@ class App extends Component {
     const http = 'https://api.giphy.com/v1/gifs/search?';
     const query = `q=${this.state.query}`;
     const key = '&api_key=BQStT8BRsgsqlIugTI8fRI5k6wZzgp3H';
-    const url = http + query + key;
+    const limit = '&limit=30'
+    const url = http + query + key + limit;
     try {
       const { data } = await axios.get(url);
       this.setState({results: data.data, message: `Search results for ${this.state.query}` })
@@ -46,11 +47,11 @@ class App extends Component {
       <div className="App">
         <h1>Giphy in a Jiffy!</h1>
         <form  className='searchBar' onSubmit={this.handleSubmit}>
-          <input type='text' value={this.state.query} onChange={this.handleChange}/>
-          <button type='submit'>Search</button>
+          <input id='searchInput' type='text' value={this.state.query} onChange={this.handleChange}/>
+          <button id='searchBtn' type='submit'>Search</button>
         </form>
         <p>{this.state.message}</p>
-        <select value={this.state.rating} onChange={this.handleSelect}>
+        <select className='select' value={this.state.rating} onChange={this.handleSelect}>
           <option>Filter by Rating</option>
           <option value='y'>Y</option>
           <option value='g'>G</option>
