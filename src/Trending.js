@@ -4,8 +4,8 @@ import Gif from './Gif.js'
 const Trending = (props) => {
   return (
     <div>
-      <p>Trending Gifs</p>
-      <div className='result'>
+      <p className="message">Trending Gifs</p>
+      <div className="result">
         {props.results.map(result => <Gif result={result} key={result.id}/>)}
       </div>
     </div>
