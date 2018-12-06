@@ -11,10 +11,12 @@ class App extends Component {
       query: '',
       results: [],
       message: '',
-      onLoad: true
+      onLoad: true,
+      sortData: false,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onSortClick = this.onSortClick.bind(this);
   }
 
   componentDidMount() {
@@ -51,11 +53,17 @@ class App extends Component {
         results: data.data, //the object in response data has a property "data" that holds the array
         message: `Search results for "${this.state.query}"`,
         onLoad: false,
+        sortData: false,
+        filterType: null
       })
     } catch(err) {
       console.error(err);
     }
     this.setState({query: ''})
+  }
+
+  onSortClick() {
+    this.setState({sortData: true})
   }
 
   render() {
@@ -69,7 +77,11 @@ class App extends Component {
         {
           this.state.onLoad
           ? <Trending results={this.state.results}/>
-          : <SearchResult message={this.state.message} results={this.state.results} />
+          : <SearchResult 
+          message={this.state.message} 
+          results={this.state.results}
+          onSortClick={this.onSortClick}
+          sortData={this.state.sortData} />
         }
       </div>
     );
