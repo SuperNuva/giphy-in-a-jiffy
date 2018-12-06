@@ -72,7 +72,7 @@ class App extends Component {
         <h1>Giphy in a Jiffy!</h1>
         <form  className='searchBar' onSubmit={this.handleSubmit}>
           <input id='searchInput' type='text' value={this.state.query} onChange={this.handleChange}/>
-          <button id='searchBtn' type='submit'>Search</button>
+          <button id='searchBtn' type='submit' disabled={!this.state.query}>Search</button>
         </form>
         {
           this.state.onLoad
