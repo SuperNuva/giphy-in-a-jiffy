@@ -6,6 +6,7 @@ const Gif = (props) => {
   return (
     <li className='gif'>
       <img src={imgSrc} alt={result.title}/>
+      <p>{result.import_datetime}</p>
     </li>
   )
 }
