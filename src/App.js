@@ -3,6 +3,8 @@ import './App.css';
 import axios from 'axios'
 import Trending from './Trending.js'
 import SearchResult from './SearchResult';
+import trending from './services/trending'
+import searching from './services/searching'
 
 class App extends Component {
   constructor() {
@@ -24,13 +26,9 @@ class App extends Component {
   }
 
   async getTrending() {
-    const http = 'https://api.giphy.com//v1/gifs/trending?';
-    const key = 'api_key=dc6zaTOxFJmzC';
-    const limit = '&limit=30'
-    const url = http + key + limit;
     try {
-      const { data } = await axios.get(url);
-      this.setState({results: data.data})
+      const trendingGifs = await trending()
+      this.setState({results: trendingGifs})
     } catch(err) {
       console.error(err);
     }
@@ -42,15 +40,11 @@ class App extends Component {
 
   async handleSubmit(evt) {
     evt.preventDefault();
-    const http = 'https://api.giphy.com/v1/gifs/search?';
-    const query = `q=${this.state.query}`;
-    const key = '&api_key=BQStT8BRsgsqlIugTI8fRI5k6wZzgp3H';
-    const limit = '&limit=30'
-    const url = http + query + key + limit;
+    
     try {
-      const { data } = await axios.get(url); //returns a json obj with the info in its property "data"
+      const  gifs = await searching(this.state.query);
       this.setState({
-        results: data.data, //the object in response data has a property "data" that holds the array
+        results: gifs,
         message: `Search results for "${this.state.query}"`,
         onLoad: false,
         sortData: false,
