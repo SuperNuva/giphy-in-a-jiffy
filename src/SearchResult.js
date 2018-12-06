@@ -41,9 +41,9 @@ class SearchResult extends Component {
     
     return (
       <div>
-        <p>{message}</p>
+        <p className="message">{message}</p>
         <Buttons onSortClick={onSortClick} onFilterClick={this.onFilterClick} clearFilter={this.clearFilter}/>
-        <div className='result'>
+        <div className="result">
           {
             this.state.filterType
             ? this.getFiltered(this.state.filterType, results).map(result => <Gif result={result} key={result.id}/>)

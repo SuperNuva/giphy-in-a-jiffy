@@ -69,10 +69,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Giphy in a Jiffy!</h1>
-        <form  className='searchBar' onSubmit={this.handleSubmit}>
-          <input id='searchInput' type='text' value={this.state.query} onChange={this.handleChange}/>
-          <button id='searchBtn' type='submit' disabled={!this.state.query}>Search</button>
+        <h1 className="title">Giphy in a Jiffy!</h1>
+        <form className="container" onSubmit={this.handleSubmit}>
+          <div className="input-group">
+            <input className="form-control" type="text" value={this.state.query} onChange={this.handleChange}/>
+            <div className="input-group-btn">
+              <button className="btn btn-primary" id="searchBtn" type="submit" disabled={!this.state.query}>Search</button>
+            </div>
+          </div>
         </form>
         {
           this.state.onLoad

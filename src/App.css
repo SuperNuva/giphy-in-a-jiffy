@@ -4,77 +4,55 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
-  font-size: calc(10px + 2vmin);
   color: white;
+  padding-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  padding-bottom: 20px;
 }
 
-.searchBar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-#searchInput {
-  width: 70vw;
-  height: 4.5vh;
-  padding: 0;
-  margin: 0;
+.message {
+  margin-top: 20px;
+  font-size: 25px;
 }
 
 #searchBtn {
-  width: 10vw;
-  height: 5vh;
-  background: lightblue;
-  text-align: center;
   text-transform: uppercase;
   font: ubuntu;
-  font-size: 1rem;
   font-weight: 500;
-  margin: 0;
-  padding: 0;
-  /* padding: 20px; */
+  background: rgb(182, 205, 255);
+  color: black
 }
 
-.btn {
-  width: 15vw;
-  height: 3.5vh;
+.filterBtn {
   background: rgb(182, 205, 255);
   text-align: center;
   font: ubuntu;
-  font-size: 1rem;
   font-weight: 500;
   margin-left: 20px;
   margin-bottom: 20px;
 }
 
-.select {
-  display: none;
-}
-
 .result {
+  padding-top: 20px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+  column-gap: 20px;
+  row-gap: 20px;
   list-style: none;
-  margin: 20px;
 }
 
-.gif {
-  padding: 5px;
-}
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 992px) {
+  /* For tablets */
+  .result {
+    grid-template-columns: auto auto auto auto;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 786px) {
+  /* For mobile phones: */
+  .result {
+    grid-template-columns: auto auto;
   }
 }
