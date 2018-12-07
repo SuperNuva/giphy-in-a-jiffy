@@ -41,7 +41,7 @@
   margin-bottom: 20px;
 }
 
-.filterBtn:hover {
+.active, .filterBtn:hover {
   background:  rgb(13, 70, 193);
   color: white;
 }

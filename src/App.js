@@ -61,6 +61,7 @@ class App extends Component {
 
   onSortClick() {
     this.setState({sortData: true})
+    
   }
 
   onFilterClick(type) {
@@ -78,7 +79,7 @@ class App extends Component {
         <h1 className="title">Giphy in a Jiffy!</h1>
         <form className="container" onSubmit={this.handleSubmit}>
           <div className="input-group">
-            <input className="form-control" type="text" value={this.state.query} onChange={this.handleChange}/>
+            <input className="form-control" type="text" placeholder="Search for Gifs..." value={this.state.query} onChange={this.handleChange}/>
             <div className="input-group-btn">
               <button className="btn btn-primary" id="searchBtn" type="submit" disabled={!this.state.query}>Search</button>
             </div>
