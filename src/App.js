@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios'
 import Trending from './Trending.js'
 import SearchResult from './SearchResult';
 import trending from './services/trending'

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Gif from './Gif.js'
 import Buttons from './Buttons.js'
+import { getSorted, getFiltered } from './utils'
 
 
 class SearchResult extends Component {
@@ -13,20 +14,6 @@ class SearchResult extends Component {
     this.clearFilter = this.clearFilter.bind(this)
   }
 
-  //sorts the results from newst import date to oldest import date
-  getSorted(array) {
-    return array.sort((a,b) => {
-      var c = new Date(a.import_datetime);
-      var d = new Date(b.import_datetime);
-      return d-c
-    });
-  }
-
-  //filter the results based on rating
-  getFiltered(filterType, results) {
-    return filterType !== null ? results.filter(result => result.rating === filterType) : results
-  }
-
   onFilterClick(type) {
     this.setState({filterType: type})
   }
@@ -37,7 +24,7 @@ class SearchResult extends Component {
 
   render() {
     const { message, sortData, onSortClick } = this.props
-    const results = sortData ? this.getSorted(this.props.results) : this.props.results
+    const results = sortData ? getSorted(this.props.results) : this.props.results
     
     return (
       <div>
@@ -46,7 +33,7 @@ class SearchResult extends Component {
         <div className="result">
           {
             this.state.filterType
-            ? this.getFiltered(this.state.filterType, results).map(result => <Gif result={result} key={result.id}/>)
+            ? getFiltered(this.state.filterType, results).map(result => <Gif result={result} key={result.id}/>)
             : results.map(result => <Gif result={result} key={result.id}/>)
           }
         </div>
