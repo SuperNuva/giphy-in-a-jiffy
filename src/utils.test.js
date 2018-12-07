@@ -20,6 +20,5 @@ describe('function getFiltered', () => {
     const filteredDataPg = getFiltered('pg-13', testData);
     expect(filteredDataPg).toBeInstanceOf(Array)
     expect(filteredDataPg).toHaveLength(1)
-
   })
 })

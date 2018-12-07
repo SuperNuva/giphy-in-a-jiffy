@@ -25,6 +25,7 @@ class SearchResult extends Component {
   render() {
     const { message, sortData, onSortClick } = this.props
     const results = sortData ? getSorted(this.props.results) : this.props.results
+    const { filterType } = this.state
     
     return (
       <div>
@@ -32,8 +33,11 @@ class SearchResult extends Component {
         <Buttons onSortClick={onSortClick} onFilterClick={this.onFilterClick} clearFilter={this.clearFilter}/>
         <div className="result">
           {
-            this.state.filterType
-            ? getFiltered(this.state.filterType, results).map(result => <Gif result={result} key={result.id}/>)
+            filterType
+            ? (
+                getFiltered(filterType, results).length !== 0 
+                ? getFiltered(filterType, results).map(result => <Gif result={result} key={result.id}/>) : <p>Sorry! There's no gif matching your criteria.</p>
+              )
             : results.map(result => <Gif result={result} key={result.id}/>)
           }
         </div>
