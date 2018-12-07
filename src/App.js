@@ -46,8 +46,7 @@ class App extends Component {
         results: gifs,
         message: `Search results for "${this.state.query}"`,
         onLoad: false,
-        sortData: false,
-        filterType: null
+        sortData: false
       })
     } catch(err) {
       console.error(err);
