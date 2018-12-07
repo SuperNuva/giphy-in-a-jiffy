@@ -13,11 +13,14 @@ class App extends Component {
       results: [],
       message: '',
       onLoad: true,
-      sortData: false
+      sortData: false,
+      filterType: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onSortClick = this.onSortClick.bind(this);
+    this.onFilterClick = this.onFilterClick.bind(this)
+    this.clearFilter = this.clearFilter.bind(this)
   }
 
   componentDidMount() {
@@ -48,6 +51,7 @@ class App extends Component {
         message: `Search results for "${this.state.query}"`,
         onLoad: false,
         sortData: false,
+        filterType: null
       })
     } catch(err) {
       console.error(err);
@@ -59,7 +63,16 @@ class App extends Component {
     this.setState({sortData: true})
   }
 
+  onFilterClick(type) {
+    this.setState({filterType: type})
+  }
+
+  clearFilter() {
+    this.setState({filterType: null})
+  }
+
   render() {
+    const { results, onLoad, message, sortData, filterType } = this.state;
     return (
       <div className="App">
         <h1 className="title">Giphy in a Jiffy!</h1>
@@ -72,13 +85,16 @@ class App extends Component {
           </div>
         </form>
         {
-          this.state.onLoad
-          ? <Trending results={this.state.results}/>
+          onLoad
+          ? <Trending results={results}/>
           : <SearchResult 
-          message={this.state.message} 
-          results={this.state.results}
+          message={message} 
+          results={results}
           onSortClick={this.onSortClick}
-          sortData={this.state.sortData} />
+          sortData={sortData}
+          filterType={filterType}
+          onFilterClick={this.onFilterClick}
+          clearFilter={this.clearFilter} />
         }
       </div>
     );
