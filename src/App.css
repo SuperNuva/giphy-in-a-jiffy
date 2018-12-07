@@ -55,16 +55,30 @@
   list-style: none;
 }
 
-@media only screen and (max-width: 992px) {
-  /* For tablets */
+@media only screen and (max-width: 1030px) {
+  /* For large tablets */
   .result {
     grid-template-columns: auto auto auto auto;
   }
 }
 
-@media only screen and (max-width: 786px) {
-  /* For mobile phones: */
+@media only screen and (max-width: 768px) {
+  /* For small tablets */
+  .result {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  /* For large mobile phones: */
   .result {
     grid-template-columns: auto auto;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  /* For small mobile phones: */
+  .result {
+    grid-template-columns: auto;
   }
 }
