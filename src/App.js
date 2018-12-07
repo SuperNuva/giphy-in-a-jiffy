@@ -13,7 +13,7 @@ class App extends Component {
       results: [],
       message: '',
       onLoad: true,
-      sortData: false,
+      sortData: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,6 +39,7 @@ class App extends Component {
 
   async handleSubmit(evt) {
     evt.preventDefault();
+    this.setState({message:'Loading GIFs...'})
     
     try {
       const  gifs = await searching(this.state.query);
@@ -46,7 +47,7 @@ class App extends Component {
         results: gifs,
         message: `Search results for "${this.state.query}"`,
         onLoad: false,
-        sortData: false
+        sortData: false,
       })
     } catch(err) {
       console.error(err);
